@@ -1,0 +1,10 @@
+{
+    "SCREEN_NAME": "SCREEN_NAME",
+    "QUERIES": [
+        "#Webマーケティング",
+        "#Webデザイン"
+    ],
+    "USE_FAVORITE": "true",
+    "USE_FOLLOW_BACK": "true",
+    "MAX_COUNT_FAVORITE": 10
+}
