@@ -29,7 +29,6 @@ s3 = boto3.resource(
 bucket = s3.Bucket(os.environ.get("AWS_S3_BUCKET"))
 
 # consts
-FOLLOWER_FILE_KEY = "followers.json"
 MAX_COUNT_FAVORITE = 10
 MAX_COUNT_RETWEET = 5
 
