@@ -153,9 +153,9 @@ def execute(config: dict) -> None:
         _tweet(tweet_content)
         print("Tweeting is completed!")
 
-    if config.get("USE_FOLLOW_BACK") == "true" and config.get("SCREEN_NAME"):
+    if config.get("USE_FOLLOW_BACK") == "true" and os.environ.get("SCREEN_NAME"):
         print("Follow back ...")
-        follower_ids = _get_followers(config.get("SCREEN_NAME"))
+        follower_ids = _get_followers(os.environ.get("SCREEN_NAME"))
         new_follower_ids = _get_new_followers(follower_ids)
         _follow(new_follower_ids)
         _update_followers(follower_ids)
