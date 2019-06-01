@@ -6,6 +6,9 @@ from app import endpoints
 from app import consts
 from requests_oauthlib import OAuth1Session
 import boto3
+# from dotenv import load_dotenv
+
+# load_dotenv()
 
 # load config
 config = {}
@@ -129,7 +132,7 @@ def execute(config: dict) -> None:
     tweets = []
     if config.get("USE_FAVORITE") == "true" or config.get("USE_RETWEET") == "true":
         print("Search tweet ...")
-        query = random.choice(config.get("QUERIES")) + " -RT" # remove retweet
+        query = random.choice(config.get("QUERIES")) + " -RT" if config.get("QUERIES") else " -RT" # remove retweet
         tweets = _search_tweets(query)
         print("Search tweet is completed!")
 
@@ -160,3 +163,6 @@ def execute(config: dict) -> None:
         _follow(new_follower_ids)
         _update_followers(follower_ids)
         print("Follow back is completed!")
+
+def lambda_handler(event, context):
+    execute(config)
